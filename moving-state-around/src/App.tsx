@@ -1,9 +1,16 @@
 import React from 'react';
 import './App.css';
+import CalculatorStateInLeaf from "./state-in-leaf/Calculator";
 
 function App() {
     return (
-        <h1>Hello, World!</h1>
+        <div>
+            <h2>State in leaf</h2>
+            <CalculatorStateInLeaf/>
+
+            <h2>State in parent</h2>
+            <CalculatorStateInLeaf/>
+        </div>
     );
 }
 
