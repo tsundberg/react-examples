@@ -4,7 +4,7 @@ import CalculatorStateInLeaf from "./state-in-leaf/Calculator";
 
 class App extends React.Component {
 
-    private static calculate() {
+    calculate() {
         console.log("Calculate")
     }
 
@@ -19,7 +19,7 @@ class App extends React.Component {
                     <CalculatorStateInLeaf/>
                 </div>
 
-                <button onClick={() => App.calculate()}>Calculate</button>
+                <button onClick={() => this.calculate()}>Calculate</button>
             </div>
         );
     }

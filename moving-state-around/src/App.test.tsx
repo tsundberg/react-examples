@@ -3,5 +3,7 @@ import App from './App';
 import {shallow} from 'enzyme';
 
 it('renders without crashing', () => {
-    shallow(<App/>);
+    let wrapper = shallow(<App/>);
+    const app = wrapper.instance() as App;
+    app.calculate();
 });
