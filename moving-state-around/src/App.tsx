@@ -1,49 +1,37 @@
-import React from 'react';
+import React, {RefObject} from 'react';
 import './App.css';
 import CalculatorStateInLeaf from "./state-in-leaf/Calculator";
 import CalculatorStateInParent from "./state-in-parent/Calculator";
+import {Calc} from "./components/Calc";
 
 interface Props {
 }
 
 interface State {
-    children: React.RefObject<React.Component> [];
 }
 
 class App extends React.Component<Props, State> {
-    state = {
-        children: []
-    }
-
-    stateInLeaf: React.RefObject<CalculatorStateInLeaf>;
-    stateInParent: React.RefObject<CalculatorStateInParent>;
+    children: React.RefObject<React.Component>[]
 
     constructor(props: Props) {
         super(props);
-        this.stateInLeaf = React.createRef();
-        this.stateInParent = React.createRef();
+
+        this.children = [];
     }
 
     calculate() {
-        console.log("Calculate")
-
-        this.state.children.forEach(child => {
-            // @ts-ignore
-            if (child.current !== null) {
-                // @ts-ignore
-
-                console.log("child", child);
-
-                // @ts-ignore
-                child.current.calculate();
+        this.children.forEach(child => {
+            const current = child.current;
+            if (current !== null) {
+                const calculator = current as unknown as Calc;
+                calculator.calculate();
             }
         });
     }
 
     addChild(): React.RefObject<any> {
-        const child = React.createRef();
-        // @ts-ignore
-        this.state.children.push(child);
+        const child: RefObject<any> = React.createRef();
+        this.children.push(child);
 
         return child;
     }

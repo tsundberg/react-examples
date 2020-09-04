@@ -1,4 +1,5 @@
 import React from 'react';
+import {Calc} from "../components/Calc";
 
 interface Props {
 }
@@ -7,7 +8,7 @@ interface State {
     result: number
 }
 
-class Calculator extends React.Component<Props, State> {
+class Calculator extends React.Component<Props, State> implements Calc {
     state = {
         result: 0
     }
