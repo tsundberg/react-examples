@@ -7,9 +7,14 @@ interface Props {
 }
 
 interface State {
+    children: React.RefObject<React.Component> [];
 }
 
 class App extends React.Component<Props, State> {
+    state = {
+        children: []
+    }
+
     stateInLeaf: React.RefObject<CalculatorStateInLeaf>;
     stateInParent: React.RefObject<CalculatorStateInParent>;
 
@@ -22,13 +27,25 @@ class App extends React.Component<Props, State> {
     calculate() {
         console.log("Calculate")
 
-        if (this.stateInLeaf.current !== null) {
-            this.stateInLeaf.current.calculate();
-        }
+        this.state.children.forEach(child => {
+            // @ts-ignore
+            if (child.current !== null) {
+                // @ts-ignore
 
-        if (this.stateInParent.current !== null) {
-            this.stateInParent.current.calculate();
-        }
+                console.log("child", child);
+
+                // @ts-ignore
+                child.current.calculate();
+            }
+        });
+    }
+
+    addChild(): React.RefObject<any> {
+        const child = React.createRef();
+        // @ts-ignore
+        this.state.children.push(child);
+
+        return child;
     }
 
     render() {
@@ -36,10 +53,10 @@ class App extends React.Component<Props, State> {
             <div>
                 <div>
                     <h2>State in leaf</h2>
-                    <CalculatorStateInLeaf ref={this.stateInLeaf}/>
+                    <CalculatorStateInLeaf ref={this.addChild()}/>
 
                     <h2>State in parent</h2>
-                    <CalculatorStateInParent ref={this.stateInParent}/>
+                    <CalculatorStateInParent ref={this.addChild()}/>
                 </div>
 
                 <button onClick={() => this.calculate()}>Calculate</button>
