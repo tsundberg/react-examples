@@ -21,6 +21,9 @@ to
 
     src/setupTests.ts
     
+Then install    
     
+    npm install --save @types/enzyme    
     
+to make IDEA happy
     
