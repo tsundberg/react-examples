@@ -1,2 +1,1 @@
-# react-examples
-A playground for react experiments
+# A playground for react-examples
