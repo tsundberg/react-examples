@@ -35,9 +35,11 @@ class Minus extends React.Component<Props, State> {
 
     render() {
         return <div>
-            <NumberField value={this.state.first}
+            <NumberField id={"first"}
+                         value={this.state.first}
                          sendValue={this.receiveFirst}/>
-            <NumberField value={this.state.second}
+            <NumberField id={"second"}
+                         value={this.state.second}
                          sendValue={this.receiveSecond}/>
         </div>
     }
