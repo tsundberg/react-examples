@@ -8,7 +8,7 @@ interface State {
     result: number
 }
 
-class Calculator extends React.Component<Props, State> implements Calc {
+class Calculator extends Calc<Props, State> {
     state = {
         result: 0
     }

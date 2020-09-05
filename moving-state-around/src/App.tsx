@@ -11,7 +11,7 @@ interface State {
 }
 
 class App extends React.Component<Props, State> {
-    children: React.RefObject<React.Component>[]
+    children: React.RefObject<Calc<any, any>>[]
 
     constructor(props: Props) {
         super(props);
@@ -23,8 +23,7 @@ class App extends React.Component<Props, State> {
         this.children.forEach(child => {
             const current = child.current;
             if (current !== null) {
-                const calculator = current as unknown as Calc;
-                calculator.calculate();
+                current.calculate();
             }
         });
     }
