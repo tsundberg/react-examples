@@ -2,8 +2,7 @@ import React from 'react';
 
 interface Props {
     value: number
-    name: string,
-    sendValue: (value: number, sender: string) => void;
+    sendValue: (value: number) => void;
 }
 
 interface State {
@@ -15,7 +14,7 @@ class NumberField extends React.Component<Props, State> {
         const number = Number(dirty);
 
         if (!isNaN(number)) {
-            this.props.sendValue(number, this.props.name);
+            this.props.sendValue(number);
         }
     }
 

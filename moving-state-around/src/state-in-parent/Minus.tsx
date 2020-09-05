@@ -10,12 +10,11 @@ interface State {
 }
 
 class Minus extends React.Component<Props, State> {
-    private readonly FIRST = "first";
-    private readonly SECOND = "second";
-
     constructor(props: Props) {
         super(props);
-        this.receiveValue = this.receiveValue.bind(this);
+        this.receiveFirst = this.receiveFirst.bind(this);
+        this.receiveSecond = this.receiveSecond.bind(this);
+
         this.state = {
             first: 0,
             second: 0,
@@ -26,24 +25,20 @@ class Minus extends React.Component<Props, State> {
         return this.state.first - this.state.second;
     }
 
-    receiveValue(value: number, sender: string): void {
-        if (sender === this.FIRST) {
-            this.setState({first: value});
-        }
-        if (sender === this.SECOND) {
-            console.log(value, sender);
-            this.setState({second: value});
-        }
+    receiveFirst(value: number): void {
+        this.setState({first: value});
+    }
+
+    receiveSecond(value: number): void {
+        this.setState({second: value});
     }
 
     render() {
         return <div>
-            <NumberField name={this.FIRST}
-                         value={this.state.first}
-                         sendValue={this.receiveValue}/>
-            <NumberField name={this.SECOND}
-                         value={this.state.second}
-                         sendValue={this.receiveValue}/>
+            <NumberField value={this.state.first}
+                         sendValue={this.receiveFirst}/>
+            <NumberField value={this.state.second}
+                         sendValue={this.receiveSecond}/>
         </div>
     }
 }
