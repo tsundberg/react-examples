@@ -22,7 +22,7 @@ class Calculator extends Calc<Props, State> {
         result: 0
     }
 
-    calculate() {
+    calculate(): any {
         if (this.minus.current !== null) {
             const result = this.minus.current.getResult();
             this.setState({result: result});

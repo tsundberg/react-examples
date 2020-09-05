@@ -37,7 +37,6 @@ class NumberField extends React.Component<Props, State> {
                        this.handleChange(e)
                    }}
             />
-
         </div>
     }
 }
