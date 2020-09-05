@@ -1,6 +1,6 @@
 import React, {RefObject} from 'react';
 import './App.css';
-import CalculatorStateInLeaf from "./state-in-leaf/Calculator";
+import CalculatorStateInLeaf from "./state-in-leaves/Calculator";
 import CalculatorStateInParent from "./state-in-parent/Calculator";
 import {Calc} from "./components/Calc";
 
