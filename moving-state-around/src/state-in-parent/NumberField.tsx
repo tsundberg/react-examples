@@ -11,7 +11,7 @@ interface State {
 
 class NumberField extends React.Component<Props, State> {
 
-    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         const dirty = e.currentTarget.value;
         const number = Number(dirty);
 
