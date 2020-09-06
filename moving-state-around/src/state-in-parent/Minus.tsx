@@ -22,7 +22,10 @@ class Minus extends React.Component<Props, State> {
     }
 
     getResult(): number {
-        return this.state.first - this.state.second;
+        const first = this.state.first;
+        const second = this.state.second;
+
+        return first - second;
     }
 
     receiveFirst(value: number): void {

@@ -25,7 +25,7 @@ class Minus extends React.Component<Props, State> {
         return first - second;
     }
 
-    private getFirst() {
+    private getFirst(): number {
         if (this.first.current !== null) {
             return this.first.current.getValue();
         }
@@ -33,7 +33,7 @@ class Minus extends React.Component<Props, State> {
         return 0;
     }
 
-    private getSecond() {
+    private getSecond(): number {
         if (this.second.current !== null) {
             return this.second.current.getValue();
         }
