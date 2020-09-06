@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface Props {
+    id: string
 }
 
 interface State {
@@ -32,7 +33,8 @@ class NumberField extends React.Component<Props, State> {
 
     render() {
         return <div>
-            <input value={this.state.value}
+            <input id={this.props.id}
+                   value={this.state.value}
                    onChange={(e) => {
                        this.handleChange(e)
                    }}
