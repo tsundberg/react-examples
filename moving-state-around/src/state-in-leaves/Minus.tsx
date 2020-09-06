@@ -43,8 +43,10 @@ class Minus extends React.Component<Props, State> {
 
     render() {
         return <div>
-            <NumberField ref={this.first}/>
-            <NumberField ref={this.second}/>
+            <NumberField id={"first"}
+                         ref={this.first}/>
+            <NumberField id={"second"}
+                         ref={this.second}/>
         </div>
     }
 }
